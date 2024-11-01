@@ -21,9 +21,9 @@ public class DynamicProgramming {
         // For each position i in the string
         for (int i = 1; i <= s.length(); i++) {
             // Try all possible substrings ending at i
-            for (int j = 0; j < i; j++) {
+            for (int k = 0; k < i; k++) {
                 // If we can segment string up to j AND substring from j to i is in dictionary
-                if (dp[j] && dictionary.contains(s.substring(j, i))) {
+                if (dp[k] && dictionary.contains(s.substring(k, i))) {
                     dp[i] = true;
                     break;
                 }
