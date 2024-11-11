@@ -22,7 +22,6 @@ public class Matrix {
         for (int i = 0; i < board.length; i++) {
             for (int k = 0; k < board[i].length; k++) {
                 if (board[i][k] == 'R') {
-                    int rookIndex = k;
                     int leftOfRookIndex = k - 1;
                     int rightOfRookIndex = k + 1;
                     int previousRowIndex = i - 1;
