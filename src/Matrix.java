@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Matrix {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //TEST
         char[][] board = {
                 {'.', '.', '.', '.', '.', '.', '.', '.'},
@@ -16,6 +16,7 @@ public class Matrix {
         };
         System.out.println(numRookCaptures(board));
     }
+
     private static int numRookCaptures(char[][] board) {
         int eliminateCount = 0;
 

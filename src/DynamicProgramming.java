@@ -4,13 +4,13 @@ public class DynamicProgramming {
 
     public static void main(String[] args) {
         //TESTS
-        List<String> wordDict = Arrays.asList("leet","code");
+        List<String> wordDict = Arrays.asList("leet", "code");
         System.out.println(wordBreak("leetcode", wordDict));
     }
 
 
     //WORD_BREAK - leetcode 139:
-    public static boolean wordBreak(String s, List<String> wordDict){
+    public static boolean wordBreak(String s, List<String> wordDict) {
         Set<String> dictionary = new HashSet<>(wordDict);
 
         boolean[] dp = new boolean[s.length() + 1];
