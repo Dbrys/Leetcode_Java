@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb52cc4-b4c8-4309-82e5-e4eb956d97ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AdventCalendar/AdventDay1And2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdventCalendar/AdventDay3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdventCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdventCalendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdventCalendar.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +47,23 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.AdventCalendar">
+  <component name="RunManager" selected="Application.AdventDay3">
     <configuration name="AdventCalendar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AdventCalendar" />
+      <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventCalendar" />
       <module name="Leetcode_work" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventDay3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventDay3" />
+      <module name="Leetcode_work" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AdventCalendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -76,6 +91,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AdventDay3" />
         <item itemvalue="Application.AdventCalendar" />
         <item itemvalue="Application.LinkedList" />
         <item itemvalue="Application.Strings" />
