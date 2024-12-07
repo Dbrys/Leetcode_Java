@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb52cc4-b4c8-4309-82e5-e4eb956d97ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/board.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AdventCalendar/AdventDay4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05pages.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05rules.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdventCalendar/AdventDay5.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +53,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdventDay4">
+  <component name="RunManager" selected="Application.AdventDay5">
     <configuration name="AdventCalendar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventCalendar" />
       <module name="Leetcode_work" />
@@ -86,6 +87,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AdventDay5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventDay5" />
+      <module name="Leetcode_work" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AdventCalendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LinkedList" />
       <module name="Leetcode_work" />
@@ -93,20 +107,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Strings" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Strings" />
-      <module name="Leetcode_work" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AdventDay5" />
         <item itemvalue="Application.AdventDay4" />
         <item itemvalue="Application.AdventDay3" />
         <item itemvalue="Application.AdventCalendar" />
         <item itemvalue="Application.LinkedList" />
-        <item itemvalue="Application.Strings" />
       </list>
     </recent_temporary>
   </component>
@@ -137,6 +144,9 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Leetcode_work$AdventDay5.ic" NAME="AdventDay5 Coverage Results" MODIFIED="1733541708082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>AdventCalendar.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Leetcode_work$AdventCalendar.ic" NAME="AdventCalendar Coverage Results" MODIFIED="1733193923331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
