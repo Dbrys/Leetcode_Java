@@ -53,4 +53,37 @@ public class BFS {
         return rightSideResult;
     }
 
+    //Maximum level sum of binary tree
+    public int maxLevelSum(TreeNode root) {
+        int levelCount = 1;
+        int maxVal = Integer.MIN_VALUE;
+        int maxLevel = 0;
+
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            int levelValue = 0;
+
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode curNode = queue.poll();
+                levelValue += curNode.val;
+                if (curNode.left != null) {
+                    queue.offer(curNode.left);
+                }
+                if (curNode.right != null) {
+                    queue.offer(curNode.right);
+                }
+            }
+            if (levelValue > maxVal) {
+                maxVal = levelValue;
+                maxLevel = levelCount;
+            }
+            levelCount++;
+        }
+
+        return maxLevel;
+    }
+
 }
