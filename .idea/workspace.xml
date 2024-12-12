@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb52cc4-b4c8-4309-82e5-e4eb956d97ec" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BFS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DFS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +50,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdventDay6">
-    <configuration name="AdventCalendar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventCalendar" />
-      <module name="Leetcode_work" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.DFS">
     <configuration name="AdventDay3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventDay3" />
       <module name="Leetcode_work" />
@@ -110,13 +103,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DFS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DFS" />
+      <module name="Leetcode_work" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DFS" />
         <item itemvalue="Application.AdventDay6" />
         <item itemvalue="Application.AdventDay5" />
         <item itemvalue="Application.AdventDay4" />
         <item itemvalue="Application.AdventDay3" />
-        <item itemvalue="Application.AdventCalendar" />
       </list>
     </recent_temporary>
   </component>
