@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb52cc4-b4c8-4309-82e5-e4eb956d97ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/BinarySearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DFS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +51,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DFS">
-    <configuration name="AdventDay3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventDay3" />
-      <module name="Leetcode_work" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="AdventCalendar.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.BinarySearch">
     <configuration name="AdventDay4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AdventCalendar.AdventDay4" />
       <module name="Leetcode_work" />
@@ -104,6 +91,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BinarySearch" />
+      <module name="Leetcode_work" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DFS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DFS" />
       <module name="Leetcode_work" />
@@ -113,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.DFS" />
         <item itemvalue="Application.AdventDay6" />
         <item itemvalue="Application.AdventDay5" />
         <item itemvalue="Application.AdventDay4" />
-        <item itemvalue="Application.AdventDay3" />
       </list>
     </recent_temporary>
   </component>
