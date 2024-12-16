@@ -61,6 +61,47 @@ public class DFS {
                 dfs(isConnected, isAProvince, i); // 1
             }
         }
-        ;
+    }
+
+    // Similar-leafs
+    public boolean leafSimilar(BFS.TreeNode root1, BFS.TreeNode root2) {
+        List<Integer> leftTreeLeaves = new ArrayList<>();
+        List<Integer> rightTreeLeaves = new ArrayList<>();
+
+        dfsLeaf(root1, leftTreeLeaves);
+        dfsLeaf(root2, rightTreeLeaves);
+
+        return leftTreeLeaves.equals(rightTreeLeaves);
+    }
+
+    public void dfsLeaf(BFS.TreeNode node, List<Integer> collect) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.right == null && node.left == null) {
+            collect.add(node.val);
+        }
+
+        dfsLeaf(node.right, collect);
+        dfsLeaf(node.left, collect);
+    }
+
+    // Good count of nodes
+    public int goodNodes(BFS.TreeNode root) {
+        return dfsGoodNode(root, Integer.MIN_VALUE);
+    }
+
+    public int dfsGoodNode(BFS.TreeNode node, int curMax) {
+        if (node == null) {
+            return 0;
+        }
+        int goodCount = node.val >= curMax ? 1 : 0;
+        if (node.val >= curMax) {
+            curMax = node.val;
+        }
+        goodCount += dfsGoodNode(node.left, curMax);
+        goodCount += dfsGoodNode(node.right, curMax);
+        return goodCount;
     }
 }
