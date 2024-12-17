@@ -41,6 +41,7 @@ public class DFS {
         }
     }
 
+
     // Number of Provinces
     public static int findCircleNum(int[][] isConnected) {
         boolean[] isProvince = new boolean[isConnected.length]; // [false,false,false]
@@ -63,7 +64,10 @@ public class DFS {
         }
     }
 
-    // Similar-leafs
+
+    //====== Trees
+
+    // === Similar-leafs
     public boolean leafSimilar(BFS.TreeNode root1, BFS.TreeNode root2) {
         List<Integer> leftTreeLeaves = new ArrayList<>();
         List<Integer> rightTreeLeaves = new ArrayList<>();
@@ -87,7 +91,7 @@ public class DFS {
         dfsLeaf(node.left, collect);
     }
 
-    // Good count of nodes
+    // === Good count of nodes
     public int goodNodes(BFS.TreeNode root) {
         return dfsGoodNode(root, Integer.MIN_VALUE);
     }
@@ -103,5 +107,33 @@ public class DFS {
         goodCount += dfsGoodNode(node.left, curMax);
         goodCount += dfsGoodNode(node.right, curMax);
         return goodCount;
+    }
+
+
+    // === Path sum equals target
+    int counter = 0; // Global variable
+
+    public int pathSum(BFS.TreeNode root, int targetSum) {
+        if (root == null) {
+            return 0;
+        }
+
+        dfsPath(root, targetSum, 0);
+        pathSum(root.left, targetSum);
+        pathSum(root.right, targetSum);
+
+        return counter;
+    }
+
+    public void dfsPath(BFS.TreeNode node, int targetSum, long currentSum) {
+        if (node == null) {
+            return;
+        }
+        currentSum += node.val;
+        if (currentSum == targetSum) {
+            counter++;
+        }
+        dfsPath(node.left, targetSum, currentSum);
+        dfsPath(node.right, targetSum, currentSum);
     }
 }
