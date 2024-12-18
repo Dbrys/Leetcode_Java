@@ -136,4 +136,55 @@ public class DFS {
         dfsPath(node.left, targetSum, currentSum);
         dfsPath(node.right, targetSum, currentSum);
     }
+
+    // Zig Zag path
+    private int maxZigZag = 0;
+
+    public int longestZigZag(BFS.TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        dfsZigZag(root, true, 0);
+        dfsZigZag(root, false, 0);
+
+        return maxZigZag;
+    }
+
+    public void dfsZigZag(BFS.TreeNode node, boolean goLeft, int length) {
+        if (node == null) {
+            return;
+        }
+        maxZigZag = Math.max(maxZigZag, length);
+        if (goLeft) {
+            dfsZigZag(node.left, false, length + 1);
+            dfsZigZag(node.right, true, 1);
+
+        } else {
+            dfsZigZag(node.right, true, length + 1);
+            dfsZigZag(node.left, false, 1);
+        }
+    }
+
+    // LCA
+    public BFS.TreeNode lowestCommonAncestor(BFS.TreeNode root, BFS.TreeNode p, BFS.TreeNode q) {
+        if (root == p) {
+            return p;
+        }
+        if (root == q) {
+            return q;
+        }
+        if (root == null) {
+            return null;
+        }
+        BFS.TreeNode left = lowestCommonAncestor(root.left, p, q); // 5
+        BFS.TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if (left != null && right != null) {
+            return root;
+        } else if (left == null) {
+            return right;
+        } else {
+            return left;
+        }
+    }
 }
