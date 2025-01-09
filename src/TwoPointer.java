@@ -84,5 +84,3 @@ public class TwoPointer {
         return String.join(" ", stringList);
     }
 }
-
-}
