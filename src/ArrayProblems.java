@@ -31,4 +31,34 @@ public class ArrayProblems {
         return answers;
     }
 
+    // String compression
+    public int compress(char[] chars) {
+        int writeIndex = 0;
+        int currentCharCount = 1;
+        char currentLetter = chars[0];
+
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] == currentLetter) {
+                currentCharCount++;
+            } else {
+                chars[writeIndex++] = currentLetter;
+                if (currentCharCount > 1) {
+                    for (char c : Integer.toString(currentCharCount).toCharArray()) {
+                        chars[writeIndex++] = c;
+                    }
+                }
+                currentLetter = chars[i];
+                currentCharCount = 1;
+            }
+        }
+
+        chars[writeIndex++] = currentLetter;
+        if (currentCharCount > 1) {
+            for (char c : Integer.toString(currentCharCount).toCharArray()) {
+                chars[writeIndex++] = c;
+            }
+        }
+
+        return writeIndex;
+    }
 }
