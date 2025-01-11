@@ -83,4 +83,52 @@ public class TwoPointer {
         }
         return String.join(" ", stringList);
     }
+
+    public int maxOperations(int[] nums, int k) {
+        Arrays.sort(nums);
+
+        int left = 0;
+        int right = nums.length - 1;
+        int numOfOperations = 0;
+
+        while (left < right) {
+            int sum = nums[left] + nums[right];
+            System.out.println(left);
+            System.out.println(right);
+            if (sum == k) {
+                numOfOperations++;
+                left++;
+                right--;
+            } else if (sum < k) {
+                left++;
+            } else {
+                right--;
+            }
+
+        }
+
+        return numOfOperations;
+    }
+
+    // Container most water
+    public int maxArea(int[] height) {
+
+        int left = 0;
+        int right = height.length - 1;
+        int maxAmount = 0;
+
+        while (left < right) {
+            int distance = right - left;
+            int containerAmount = Math.min(height[left], height[right]) * distance;
+            if (containerAmount > maxAmount) {
+                maxAmount = containerAmount;
+            }
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxAmount;
+    }
 }
