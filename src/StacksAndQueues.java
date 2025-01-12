@@ -24,4 +24,33 @@ public class StacksAndQueues {
         return starStack.stream().map(Object::toString)
                 .collect(Collectors.joining(""));
     }
+
+
+    public int[] asteroidCollision(int[] asteroids) {
+        Stack<Integer> collidedAstroids = new Stack<>();
+
+        for (int asteroid : asteroids) {
+            while (!collidedAstroids.empty() && asteroid < 0 && collidedAstroids.peek() > 0) {
+                if (Math.abs(asteroid) > collidedAstroids.peek()) {
+                    collidedAstroids.pop();
+                } else if (Math.abs(asteroid) == collidedAstroids.peek()) {
+                    collidedAstroids.pop();
+                    asteroid = 0;
+                } else {
+                    asteroid = 0;
+                }
+            }
+            if (asteroid != 0) {
+                collidedAstroids.push(asteroid);
+            }
+        }
+
+        int[] result = new int[collidedAstroids.size()];
+
+        for (int i = 0; i < collidedAstroids.size(); i++) {
+            result[i] = collidedAstroids.get(i);
+        }
+
+        return result;
+    }
 }
