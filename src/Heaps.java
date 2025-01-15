@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class Heaps {
@@ -6,24 +7,16 @@ public class Heaps {
 
     }
 
-    private Integer minNum = 1;
-    private PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>()
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
-    public int popSmallest() {
-        int result = minNum;
-
-        if (!this.minHeap.isEmpty() && this.minHeap.peek() < minNum) {
-            result = this.minHeap.poll();
-        } else {
-            minNum++;
+        for (int num : nums) {
+            maxHeap.add(num);
         }
-        while (!this.minHeap.isEmpty() && this.minHeap.peek() == result) {
-            this.minHeap.poll();
-        }
-        return result;
-    }
 
-    public void addBack(int num) {
-        this.minHeap.add(num);
+        for (int i = 0; i < k - 1; i++) {
+            maxHeap.poll();
+        }
+        return maxHeap.peek();
     }
 }
