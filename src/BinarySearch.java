@@ -36,7 +36,6 @@ public class BinarySearch {
 
         while (left < right) {
             int middle = (left + right) / 2;
-            System.out.println("value:" + middle);
             if (nums[middle] > nums[middle + 1]) {
                 right = middle;
             } else {
@@ -45,6 +44,29 @@ public class BinarySearch {
 
         }
         return left;
+    }
+
+    public int minEatingSpeed(int[] piles, int h) {
+        int left = 1;
+        int right = Arrays.stream(piles).max().getAsInt();
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            long totalHours = 0;
+
+            for (int pile : piles) {
+                totalHours += (long) (pile + mid - 1) / mid;
+            }
+
+            if (totalHours > h) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return left;
+
     }
 }
 
