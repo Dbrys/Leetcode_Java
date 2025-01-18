@@ -9,7 +9,7 @@ public class DynamicProgramming {
     }
 
 
-    //WORD_BREAK - leetcode 139:
+    //WORD_BREAK
     public static boolean wordBreak(String s, List<String> wordDict) {
         Set<String> dictionary = new HashSet<>(wordDict);
 
