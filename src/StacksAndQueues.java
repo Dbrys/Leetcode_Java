@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -89,5 +91,31 @@ public class StacksAndQueues {
         }
 
         return res;
+    }
+
+
+    public String predictPartyVictory(String senate) {
+        Queue<Integer> rad = new LinkedList<>();
+        Queue<Integer> dir = new LinkedList<>();
+        int n = senate.length();
+        // Add indexes to the queue. Lower index = priority
+        for (int i = 0; i < n; i++) {
+            if (senate.charAt(i) == 'R') {
+                rad.add(i);
+            } else {
+                dir.add(i);
+            }
+        }
+        // Use increasing n to keep track of position
+        while (!rad.isEmpty() && !dir.isEmpty()) {
+            if (rad.peek() < dir.peek()) {
+                rad.add(n++);
+            } else {
+                dir.add(n++);
+            }
+            rad.poll();
+            dir.poll();
+        }
+        return (rad.isEmpty()) ? ("Dire") : ("Radiant");
     }
 }
