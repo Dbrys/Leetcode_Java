@@ -64,9 +64,54 @@ public class DFS {
         }
     }
 
+    private int minChange = 0;
+
+    public void dfs(List<List<Pair<Integer, Integer>>> adj, boolean[] visited, int currCity) {
+        visited[currCity] = true;
+        for (Pair<Integer, Integer> neighbourCity : adj.get(currCity)) {
+            if (!visited[neighbourCity.getKey()]) {
+                if (neighbourCity.getValue() == 1) {
+                    minChange += 1;
+                }
+                dfs(adj, visited, neighbourCity.getKey());
+            }
+        }
+    }
+
+    public int minReorder(int n, int[][] connections) {
+        List<List<Pair<Integer, Integer>>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<>());
+        }
+        for (int[] connection : connections) {
+            adj.get(connection[0]).add(new Pair<>(connection[1], 1));
+            adj.get(connection[1]).add(new Pair<>(connection[0], -1));
+        }
+        boolean[] visited = new boolean[n];
+        dfs(adj, visited, 0);
+        return minChange;
+    }
+
+    public class Pair<K, V> {
+        private K key;
+        private V value;
+
+        public Pair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public K getKey() {
+            return key;
+        }
+
+        public V getValue() {
+            return value;
+        }
+    }
+
 
     //====== Trees
-
     // === Similar-leafs
     public boolean leafSimilar(BFS.TreeNode root1, BFS.TreeNode root2) {
         List<Integer> leftTreeLeaves = new ArrayList<>();
