@@ -26,6 +26,7 @@ public class BFS {
         }
     }
 
+    //###################  BFS Trees
     // Right side of binary tree
     private static List<Integer> rightSideView(TreeNode root) {
         ArrayList<Integer> rightSideResult = new ArrayList<>();
@@ -86,4 +87,43 @@ public class BFS {
         return maxLevel;
     }
 
+
+    //###################### BFS Graphs
+    public int nearestExit(char[][] maze, int[] entrance) {
+        int rowCount = maze.length;
+        int colCount = maze[0].length;
+        Queue<int[]> directionQueue = new LinkedList<>();
+        // Good to store directions to reference
+        // Up, down,left,right
+        int[][] directions = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+
+        //Need to add entrance to start queue row, col, step count
+        directionQueue.add(new int[]{entrance[0], entrance[1], 0});
+        maze[entrance[0]][entrance[1]] = '+'; // Mark as visited
+
+        while (!directionQueue.isEmpty()) {
+            // Get queue values
+            int[] queueVals = directionQueue.poll();
+            int rowVal = queueVals[0];
+            int colVal = queueVals[1];
+            int steps = queueVals[2];
+
+            for (int[] direction : directions) {
+                int newRow = rowVal + direction[0];
+                int newCol = colVal + direction[1];
+
+                if (newRow >= 0 && newRow < rowCount && newCol >= 0 && newCol < colCount && maze[newRow][newCol] == '.') {
+
+                    if (newRow == 0 || newRow == rowCount - 1 || newCol == 0 || newCol == colCount - 1) {
+                        return steps + 1;
+                    }
+                    //Mark a visited
+                    maze[newRow][newCol] = '+';
+                    directionQueue.add(new int[]{newRow, newCol, steps + 1});
+                }
+            }
+        }
+
+        return -1;
+    }
 }

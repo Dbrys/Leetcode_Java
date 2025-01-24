@@ -64,8 +64,8 @@ public class DFS {
         }
     }
 
-    private int minChange = 0;
 
+    private int minChange = 0;
     public void dfs(List<List<Pair<Integer, Integer>>> adj, boolean[] visited, int currCity) {
         visited[currCity] = true;
         for (Pair<Integer, Integer> neighbourCity : adj.get(currCity)) {
