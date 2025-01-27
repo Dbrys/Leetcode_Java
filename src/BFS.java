@@ -123,7 +123,60 @@ public class BFS {
                 }
             }
         }
-
         return -1;
+    }
+
+    public int orangesRotting(int[][] grid) {
+        int rowSize = grid.length;
+        int colSize = grid[0].length;
+
+        Queue<int[]> orangeQueue = new LinkedList<>();
+        int freshOrangeCount = 0;
+        // Add rotten oranges to queue and get fresh orange count
+        for (int r = 0; r < rowSize; r++) {
+            for (int c = 0; c < colSize; c++) {
+                if (grid[r][c] == 2) {
+                    orangeQueue.offer(new int[]{r, c});
+                }
+                if (grid[r][c] == 1) {
+                    freshOrangeCount++;
+                }
+            }
+        }
+
+        if (freshOrangeCount == 0) {
+            return 0;
+        }
+
+        int[][] directions = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+        int minMinutes = 0;
+
+        while (!orangeQueue.isEmpty()) {
+            int queueSize = orangeQueue.size();
+            boolean addedRotten = false;
+
+            for (int i = 0; i < queueSize; i++) {
+                int[] oranges = orangeQueue.poll();
+                int row = oranges[0];
+                int col = oranges[1];
+
+                for (int[] direction : directions) {
+                    int newRow = row + direction[0];
+                    int newCol = col + direction[1];
+
+                    if (newRow >= 0 && newRow < rowSize && newCol >= 0 && newCol < colSize
+                            && grid[newRow][newCol] == 1) {
+                        addedRotten = true;
+                        grid[newRow][newCol] = 2;
+                        orangeQueue.offer(new int[]{newRow, newCol});
+                        freshOrangeCount--;
+                    }
+                }
+            }
+            if (addedRotten) {
+                minMinutes++;
+            }
+        }
+        return freshOrangeCount == 0 ? minMinutes : -1;
     }
 }
