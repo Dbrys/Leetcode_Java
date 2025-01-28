@@ -33,4 +33,47 @@ public class DynamicProgramming {
         return dp[s.length()];
     }
 
+    //Tribonacci
+    public int tribonacci(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        int[] threeCount = new int[]{0, 1, 1};
+        int nValue = 0;
+        for (int i = 3; i <= n; i++) {
+            nValue = threeCount[0] + threeCount[1] + threeCount[2];
+            threeCount[0] = threeCount[1];
+            threeCount[1] = threeCount[2];
+            threeCount[2] = nValue;
+        }
+        return threeCount[2];
+    }
+
+
+    //Multidimensional
+    public int uniquePaths(int m, int n) {
+        int[][] cache = new int[m][n];
+
+        // Fill cache
+        for (int r = 0; r < m; r++) {
+            for (int c = 0; c < n; c++) {
+                cache[r][c] = -1;
+            }
+        }
+        return numPaths(m - 1, n - 1, cache);
+    }
+
+    private int numPaths(int r, int c, int[][] cache) {
+        if (r == 0 || c == 0) {
+            return 1;
+        }
+        if (cache[r - 1][c] == -1) {
+            cache[r - 1][c] = numPaths(r - 1, c, cache);
+        }
+        if (cache[r][c - 1] == -1) {
+            cache[r][c - 1] = numPaths(r, c - 1, cache);
+        }
+        return cache[r - 1][c] + cache[r][c - 1];
+    }
+
 }
