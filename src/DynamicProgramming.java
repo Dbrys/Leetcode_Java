@@ -50,6 +50,22 @@ public class DynamicProgramming {
     }
 
 
+    //ClimbingStairs
+    public int minCostClimbingStairs(int[] cost) {
+        int prevStairCost = cost[0];
+        int curStairCost = cost[1];
+        if (cost.length == 2) {
+            return Math.min(prevStairCost, curStairCost);
+        }
+        for (int i = 2; i < cost.length; i++) {
+            int nextStairCost = cost[i] + Math.min(prevStairCost, curStairCost);
+            prevStairCost = curStairCost;
+            curStairCost = nextStairCost;
+        }
+        return Math.min(prevStairCost, curStairCost);
+    }
+
+
     //Multidimensional
     public int uniquePaths(int m, int n) {
         int[][] cache = new int[m][n];
