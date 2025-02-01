@@ -6,6 +6,8 @@ public class DynamicProgramming {
         //TESTS
         List<String> wordDict = Arrays.asList("leet", "code");
         System.out.println(wordBreak("leetcode", wordDict));
+        int[] houses = new int[]{2, 1, 1, 2};
+        System.out.println(rob(houses));
     }
 
 
@@ -63,6 +65,19 @@ public class DynamicProgramming {
             curStairCost = nextStairCost;
         }
         return Math.min(prevStairCost, curStairCost);
+    }
+
+    //Robber
+    public static int rob(int[] houses) {
+        int prevHouse = 0;
+        int maxVal = 0;
+
+        for (int house : houses) {
+            int tempMax = Math.max(maxVal, prevHouse + house);
+            prevHouse = maxVal;
+            maxVal = tempMax;
+        }
+        return maxVal;
     }
 
 
