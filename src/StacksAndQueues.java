@@ -56,6 +56,31 @@ public class StacksAndQueues {
         return result;
     }
 
+    public int[] dailyTemperatures(int[] temperatures) {
+        int tempLength = temperatures.length;
+        int[] dayCount = new int[tempLength];
+
+        Stack<Integer> stack = new Stack<>();
+
+        // Right to left
+        for (int k = tempLength - 1; k >= 0; k--) {
+
+            while (!stack.isEmpty() && temperatures[k] >= temperatures[stack.peek()]) {
+                stack.pop();
+            }
+
+            if (!stack.isEmpty()) {
+                dayCount[k] = stack.peek() - k;
+            } else {
+                dayCount[k] = 0;
+            }
+
+            stack.push(k);
+
+        }
+        return dayCount;
+    }
+
     public String decodeString(String s) {
         Stack<Integer> counter = new Stack<>();
         Stack<String> stringResult = new Stack<>();
