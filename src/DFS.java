@@ -17,6 +17,25 @@ public class DFS {
         System.out.println(findCircleNum(cities));
     }
 
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
     //====== Graphs
     // Key to room
     public static boolean canVisitAllRooms(List<List<Integer>> rooms) {
@@ -113,7 +132,7 @@ public class DFS {
 
     //====== Trees
     // === Similar-leafs
-    public boolean leafSimilar(BFS.TreeNode root1, BFS.TreeNode root2) {
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
         List<Integer> leftTreeLeaves = new ArrayList<>();
         List<Integer> rightTreeLeaves = new ArrayList<>();
 
@@ -123,7 +142,7 @@ public class DFS {
         return leftTreeLeaves.equals(rightTreeLeaves);
     }
 
-    public void dfsLeaf(BFS.TreeNode node, List<Integer> collect) {
+    public void dfsLeaf(TreeNode node, List<Integer> collect) {
         if (node == null) {
             return;
         }
@@ -137,11 +156,11 @@ public class DFS {
     }
 
     // === Good count of nodes
-    public int goodNodes(BFS.TreeNode root) {
+    public int goodNodes(TreeNode root) {
         return dfsGoodNode(root, Integer.MIN_VALUE);
     }
 
-    public int dfsGoodNode(BFS.TreeNode node, int curMax) {
+    public int dfsGoodNode(TreeNode node, int curMax) {
         if (node == null) {
             return 0;
         }
@@ -158,7 +177,7 @@ public class DFS {
     // === Path sum equals target
     int counter = 0; // Global variable
 
-    public int pathSum(BFS.TreeNode root, int targetSum) {
+    public int pathSum(TreeNode root, int targetSum) {
         if (root == null) {
             return 0;
         }
@@ -170,7 +189,7 @@ public class DFS {
         return counter;
     }
 
-    public void dfsPath(BFS.TreeNode node, int targetSum, long currentSum) {
+    public void dfsPath(TreeNode node, int targetSum, long currentSum) {
         if (node == null) {
             return;
         }
@@ -185,7 +204,7 @@ public class DFS {
     // Zig Zag path
     private int maxZigZag = 0;
 
-    public int longestZigZag(BFS.TreeNode root) {
+    public int longestZigZag(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -195,7 +214,7 @@ public class DFS {
         return maxZigZag;
     }
 
-    public void dfsZigZag(BFS.TreeNode node, boolean goLeft, int length) {
+    public void dfsZigZag(TreeNode node, boolean goLeft, int length) {
         if (node == null) {
             return;
         }
@@ -211,7 +230,7 @@ public class DFS {
     }
 
     // LCA
-    public BFS.TreeNode lowestCommonAncestor(BFS.TreeNode root, BFS.TreeNode p, BFS.TreeNode q) {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == p) {
             return p;
         }
@@ -221,8 +240,8 @@ public class DFS {
         if (root == null) {
             return null;
         }
-        BFS.TreeNode left = lowestCommonAncestor(root.left, p, q); // 5
-        BFS.TreeNode right = lowestCommonAncestor(root.right, p, q);
+        TreeNode left = lowestCommonAncestor(root.left, p, q); // 5
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
 
         if (left != null && right != null) {
             return root;
@@ -232,4 +251,44 @@ public class DFS {
             return left;
         }
     }
+
+    //############
+    public boolean isHeightBalanced(TreeNode root) {
+        return dfsDepth(root) != -1;
+    }
+
+    public int dfsDepth(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int leftHeight = dfsDepth(node.left);
+        if (leftHeight == -1) return -1;
+        int rightHeight = dfsDepth(node.right);
+        if (rightHeight == -1) return -1;
+
+        if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    //############
+
+    public boolean isSymmetric(TreeNode root) {
+        // Check values as I go down the tree
+        if (root == null) {
+            return true;
+        }
+        return isMirror(root.left, root.right);
+    }
+
+    public boolean isMirror(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        }
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.val == right.val && isMirror(left.left, right.right) && isMirror(left.right, right.left);
+    }
+    //############
 }
