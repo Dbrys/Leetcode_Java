@@ -291,4 +291,47 @@ public class DFS {
         return left.val == right.val && isMirror(left.left, right.right) && isMirror(left.right, right.left);
     }
     //############
+    
+    // Word Search
+    public boolean exist(char[][] board, String word) {
+        int numRows = board.length;
+        int numCols = board[0].length;
+        boolean[][] visited = new boolean[numRows][numCols];
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                if (board[i][j] == word.charAt(0)) {
+                    if (backTracking(i, j, board, 0, visited, word)) {
+                        return true;
+                    }
+
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean backTracking(int row, int col, char[][] board, int indx, boolean[][] visited, String word) {
+        if (indx == word.length()) {
+            return true;
+        }
+
+        // Failed cases
+        if (row < 0 || col < 0 || row >= board.length || col >= board[0].length || visited[row][col]
+                || board[row][col] != word.charAt(indx)) {
+            return false;
+        }
+        visited[row][col] = true;
+
+        if (backTracking(row, col + 1, board, indx + 1, visited, word))
+            return true;
+        if (backTracking(row, col - 1, board, indx + 1, visited, word))
+            return true;
+        if (backTracking(row + 1, col, board, indx + 1, visited, word))
+            return true;
+        if (backTracking(row - 1, col, board, indx + 1, visited, word))
+            return true;
+
+        visited[row][col] = false;
+        return false;
+    }
 }
