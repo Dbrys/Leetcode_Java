@@ -334,4 +334,28 @@ public class DFS {
         visited[row][col] = false;
         return false;
     }
+
+    //##############
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<List<Integer>> targetList = new ArrayList<>();
+        List<Integer> curPath = new ArrayList<>();
+        dfs(root, targetSum, curPath, targetList);
+        return targetList;
+    }
+
+    public void dfs(TreeNode node, int passedSum, List<Integer> curPath, List<List<Integer>> targetList) {
+        if (node == null) {
+            return;
+        }
+        curPath.add(node.val);
+
+        if (node.left == null && node.right == null && passedSum == node.val) {
+            targetList.add(new ArrayList<>(curPath));
+        } else {
+            dfs(node.left, passedSum - node.val, curPath, targetList);
+            dfs(node.right, passedSum - node.val, curPath, targetList);
+        }
+
+        curPath.remove(curPath.size() - 1);
+    }
 }
