@@ -177,14 +177,14 @@ public class DFS {
     // === Path sum equals target
     int counter = 0; // Global variable
 
-    public int pathSum(TreeNode root, int targetSum) {
+    public int pathSum2(TreeNode root, int targetSum) {
         if (root == null) {
             return 0;
         }
 
         dfsPath(root, targetSum, 0);
-        pathSum(root.left, targetSum);
-        pathSum(root.right, targetSum);
+        pathSum2(root.left, targetSum);
+        pathSum2(root.right, targetSum);
 
         return counter;
     }
@@ -374,5 +374,14 @@ public class DFS {
         }
 
         return bstIsValid(node.left, min, node.val) && bstIsValid(node.right, node.val, max);
+    }
+
+    //###############
+    // Complete tree node count
+    public int countNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return countNodes(root.left) + countNodes(root.right) + 1;
     }
 }
