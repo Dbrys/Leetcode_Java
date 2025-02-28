@@ -384,4 +384,28 @@ public class DFS {
         }
         return countNodes(root.left) + countNodes(root.right) + 1;
     }
+
+    //################
+    // Flatten binary tree to linked list
+    public void flatten(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        flatten(root.left);
+        flatten(root.right);
+
+        // Subtree to be added back to right after adding all left nodes
+        TreeNode rightSubTree = root.right;
+
+        root.right = root.left;
+        root.left = null;
+
+        // Loop through all added left subtree nodes to get to last one
+        TreeNode currentNode = root;
+        while (currentNode.right != null) {
+            currentNode = currentNode.right;
+        }
+        currentNode.right = rightSubTree;
+    }
 }
